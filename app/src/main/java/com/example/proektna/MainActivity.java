@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("username", userModel.getUsername());
                 intent.putExtra("name", userModel.getFname() + " " + userModel.getLname());
                 startActivity(intent);
-
             }
         } else {
             Toast toast = Toast.makeText(getApplicationContext(), "Your username or password is incorrect!", Toast.LENGTH_SHORT);
@@ -84,36 +83,41 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void printUser(View view) {
-        DBHelper dbHelper = new DBHelper(MainActivity.this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String[] projection = {
-                BaseColumns._ID,
-                DBHelper.COLUMN_USERNAME,
-                DBHelper.COLUMN_PASSWORD
-        };
-
-        String selection = DBHelper.COLUMN_USERNAME + " = ?";
-        String[] selectionArgs = {"vlatkok"};
-
-        Cursor cursor = db.query(
-                DBHelper.USER_TABLE,
-                projection,
-                selection,
-                selectionArgs,
-                null,
-                null,
-                null
-        );
-
-        List itemIds = new ArrayList<>();
-        while(cursor.moveToNext()) {
-            long itemId = cursor.getLong(
-                    cursor.getColumnIndexOrThrow(DBHelper.COLUMN_ID)
-            );
-            itemIds.add(itemId);
-        }
-        cursor.close();
+    public void toReservationActivity(View view) {
+        Intent intent = new Intent(this, ReservationForm.class);
+        startActivity(intent);
     }
+
+//    public void printUser(View view) {
+//        DBHelper dbHelper = new DBHelper(MainActivity.this);
+//        SQLiteDatabase db = dbHelper.getReadableDatabase();
+//        String[] projection = {
+//                BaseColumns._ID,
+//                DBHelper.COLUMN_USERNAME,
+//                DBHelper.COLUMN_PASSWORD
+//        };
+//
+//        String selection = DBHelper.COLUMN_USERNAME + " = ?";
+//        String[] selectionArgs = {"vlatkok"};
+//
+//        Cursor cursor = db.query(
+//                DBHelper.USER_TABLE,
+//                projection,
+//                selection,
+//                selectionArgs,
+//                null,
+//                null,
+//                null
+//        );
+//
+//        List itemIds = new ArrayList<>();
+//        while(cursor.moveToNext()) {
+//            long itemId = cursor.getLong(
+//                    cursor.getColumnIndexOrThrow(DBHelper.COLUMN_ID)
+//            );
+//            itemIds.add(itemId);
+//        }
+//        cursor.close();
+//    }
 
 }

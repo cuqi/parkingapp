@@ -13,14 +13,15 @@ import java.util.List;
 public class Cities extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
-    myAdapter myAdapter;
+    myAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cities);
 
-        List<String> values = Arrays.asList("Skopje", "Tokyo", "Berlin", "Nairobi", "Rio de Janeiro", "Denver", "Paris", "Oslo", "Helsinki");
+        List<String> values = Arrays.asList("Skopje", "Tokyo", "Berlin", "London", "Denver", "Paris", "Oslo", "Helsinki");
+
         mRecyclerView = (RecyclerView) findViewById(R.id.list);
 
         mRecyclerView.setHasFixedSize(true);
@@ -29,8 +30,8 @@ public class Cities extends AppCompatActivity {
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        myAdapter = new myAdapter(values, R.layout.activity_cities, this);
+        mAdapter = new myAdapter(values, R.layout.my_row, this);
 
-        mRecyclerView.setAdapter(myAdapter);
+        mRecyclerView.setAdapter(mAdapter);
     }
 }

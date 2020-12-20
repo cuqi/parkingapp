@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".ReservationForm">
 
     <fragment
         android:id="@+id/frag1"
         android:name="com.example.proektna.MyReservationFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="365dp"
+        android:layout_height="231dp"
         tools:layout="@layout/fragment_my_reservation" />
 
     <fragment
         android:id="@+id/frag2"
         android:name="com.example.proektna.MyReservationFragment"
-        android:layout_width="match_parent"
-        android:layout_height="96dp"
+        android:layout_width="365dp"
+        android:layout_height="113dp"
         tools:layout="@layout/fragment_my_reservation2" />
 
 </LinearLayout>
