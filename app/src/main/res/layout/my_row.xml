@@ -33,7 +33,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reserve Parking"
-            android:onClick="toReservationActivity"
             />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

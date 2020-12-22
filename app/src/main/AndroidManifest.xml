@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Proektna">
+        <activity android:name=".ParkingPlaces" android:parentActivityName=".ReservationForm"></activity>
         <activity android:name=".ReservationForm" android:parentActivityName=".Cities"></activity>
         <activity android:name=".Cities" android:parentActivityName=".MainActivity" />
         <activity android:name=".Register" android:parentActivityName=".MainActivity" />

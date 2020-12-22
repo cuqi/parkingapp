@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/frag2"
-        android:name="com.example.proektna.MyReservationFragment"
+        android:name="com.example.proektna.MyReservationFragment2"
         android:layout_width="365dp"
         android:layout_height="113dp"
         tools:layout="@layout/fragment_my_reservation2" />
