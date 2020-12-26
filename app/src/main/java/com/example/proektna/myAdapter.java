@@ -3,6 +3,8 @@ package com.example.proektna;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,14 +61,14 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         String entry = myList.get(i);
         List<Item> items = new ArrayList<Item>();
-        items.add(new Item("Skopje", R.drawable.skopje));
-        items.add(new Item("Tokyo", R.drawable.tokyo));
-        items.add(new Item("Berlin", R.drawable.berlin));
-        items.add(new Item("London", R.drawable.london));
-        items.add(new Item("Denver", R.drawable.denver));
-        items.add(new Item("Paris", R.drawable.paris));
-        items.add(new Item("Oslo", R.drawable.oslo));
-        items.add(new Item("Helsinki", R.drawable.helsinki));
+        items.add(new Item("Austin", R.drawable.austin));
+        items.add(new Item("Chicago", R.drawable.chicago));
+        items.add(new Item("Los Angeles", R.drawable.los_angeles));
+        items.add(new Item("Miami", R.drawable.miami));
+        items.add(new Item("New York", R.drawable.new_york));
+        items.add(new Item("Oklahoma", R.drawable.oklahoma));
+        items.add(new Item("Portland", R.drawable.portland));
+        items.add(new Item("San Francisco", R.drawable.san_francisco));
         int ir = items.get(i).drawable;
         viewHolder.Pic.setImageResource(ir);
         viewHolder.myName.setText(entry);
@@ -76,6 +78,12 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder> {
                 TextView tv = (TextView) v;
                 Toast.makeText(context, tv.getText(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(v.getContext(), ReservationForm.class);
+                // NEW CHANGE
+                //intent.putExtra("city_name", myList.get(i));
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(v.getContext());
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("city_name", entry);
+                editor.commit();
                 context.startActivity(intent);
             }
         });

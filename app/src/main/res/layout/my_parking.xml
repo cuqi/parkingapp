@@ -13,30 +13,42 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/parkingName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:textSize="30dp"
+            android:textStyle="bold|italic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/free"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="#4CAF50"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/taken"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="19dp"
+                android:background="#FF2020"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/reserve_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reserve Parking" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="0dp"
-            card_view:srcCompat="@drawable/green" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            card_view:srcCompat="@drawable/red" />
+            android:layout_marginEnd="232dp"
+            android:text="Reserve Parking"
+ />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

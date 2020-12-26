@@ -60,6 +60,13 @@
             android:text="REGISTER"
             android:onClick="toRegisterActivity"/>
 
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TEST DATABASE"
+            android:onClick="printParking"/>
+
 
     </LinearLayout>
 

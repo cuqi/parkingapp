@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.Arrays;
@@ -20,7 +21,13 @@ public class Cities extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cities);
 
-        List<String> values = Arrays.asList("Skopje", "Tokyo", "Berlin", "London", "Denver", "Paris", "Oslo", "Helsinki");
+//        Intent intent = getIntent();
+//        String username = intent.getStringExtra("username");
+//        String password = intent.getStringExtra("password");
+//
+//        DBHelper dbHelper = new DBHelper(Cities.this);
+
+        List<String> values = Arrays.asList("Austin", "Chicago", "Los Angeles", "Miami", "New York", "Oklahoma", "Portland", "San Francisco");
 
         mRecyclerView = (RecyclerView) findViewById(R.id.list);
 

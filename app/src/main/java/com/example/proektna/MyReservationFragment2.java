@@ -1,12 +1,14 @@
 package com.example.proektna;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +63,8 @@ public class MyReservationFragment2 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
@@ -100,7 +104,9 @@ public class MyReservationFragment2 extends Fragment {
 
         button.setOnClickListener(new View.OnClickListener(){
             @Override public void onClick(View view1) {
-                Toast toast = Toast.makeText(getContext(), "button clicked! THE TIME IS: " + t[0] + fullDate[0], Toast.LENGTH_SHORT);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view1.getContext());
+                String city_name = prefs.getString("city_name", "Austin");
+                Toast toast = Toast.makeText(getContext(), "button clicked! THE TIME IS: " + t[0] + fullDate[0] + "NAME OF THE CITY: " + city_name, Toast.LENGTH_LONG);
                 toast.show();
                 Intent intent = new Intent(getContext(), ParkingPlaces.class);
                 intent.putExtra("time", t[0]);
