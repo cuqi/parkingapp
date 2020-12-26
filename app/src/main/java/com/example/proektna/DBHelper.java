@@ -18,7 +18,7 @@ import java.util.List;
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "database2.db";
+    public static final String DATABASE_NAME = "database4.db";
 
     public static final String USER_TABLE = "USER_TABLE";
     public static final String COLUMN_ID = "ID";
@@ -33,7 +33,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CITY = "CITY_NAME";
     public static final String COLUMN_FREE = "FREE";
     public static final String COLUMN_TAKEN = "TAKEN";
+    public static final String COLUMN_X = "X";
+    public static final String COLUMN_Y = "Y";
 //    public static final String COLUMN_TIME_SLOT = "TIME_SLOT";
+
 //    public static final String COLUMN_DATE = "DATE";
 
     public static final String RESERVATION_TABLE = "RESERVATION_TABLE";
@@ -63,7 +66,10 @@ public class DBHelper extends SQLiteOpenHelper {
                 COLUMN_PARKING_NAME + " VARCHAR(50), " +
                 COLUMN_CITY + " VARCHAR(20), " +
                 COLUMN_FREE + " INTEGER, " +
-                COLUMN_TAKEN + " INTEGER )";
+                COLUMN_TAKEN + " INTEGER, " +
+                COLUMN_X + " FLOAT, " +
+                COLUMN_Y + " FLOAT)";
+
 
         db.execSQL(createParkingTableStatement);
 
@@ -96,6 +102,8 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_CITY, parkingModel.getCity_name());
         cv.put(COLUMN_FREE, parkingModel.getFree());
         cv.put(COLUMN_TAKEN, parkingModel.getTaken());
+        cv.put(COLUMN_X, parkingModel.getX());
+        cv.put(COLUMN_Y, parkingModel.getY());
 
         long insert = db.insert(PARKING_TABLE, null, cv);
 
@@ -138,8 +146,10 @@ public class DBHelper extends SQLiteOpenHelper {
                 String cityName = cursor.getString(2);
                 int free = cursor.getInt(3);
                 int taken = cursor.getInt(4);
+                float x = cursor.getFloat(5);
+                float y = cursor.getFloat(6);
 
-                ParkingModel pm = new ParkingModel(userID, parkingName, cityName, free, taken);
+                ParkingModel pm = new ParkingModel(userID, parkingName, cityName, free, taken, x, y);
                 returnList.add(pm);
             } while (cursor.moveToNext());
         }
@@ -148,6 +158,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return returnList;
     }
+
 
     public boolean addUser(UserModel userModel) {
         SQLiteDatabase db = this.getWritableDatabase();

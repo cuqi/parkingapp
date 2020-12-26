@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,12 +37,14 @@ public class myAdapter2 extends RecyclerView.Adapter<myAdapter2.ViewHolder> {
         public TextView free;
         public TextView taken;
         public TextView parking_name;
+        public Button reserve_button;
 
         public ViewHolder(View view) {
             super(view);
             parking_name = (TextView) itemView.findViewById(R.id.parkingName);
             free = (TextView) itemView.findViewById(R.id.free);
             taken = (TextView) itemView.findViewById(R.id.taken);
+            reserve_button = (Button) itemView.findViewById(R.id.reserve_button);
         }
     }
 
@@ -64,6 +67,13 @@ public class myAdapter2 extends RecyclerView.Adapter<myAdapter2.ViewHolder> {
         viewHolder.free.setText(String.valueOf(rm.getFree()));
         viewHolder.taken.setText(String.valueOf(rm.getTaken()));
 
+        viewHolder.reserve_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ReservationConfirmation.class);
+                v.getContext().startActivity(intent);
+            }
+        });
 //        viewHolder.myName.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

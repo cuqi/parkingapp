@@ -7,13 +7,17 @@ public class ParkingModel {
     private String city_name;
     private int free;
     private int taken;
+    private float x;
+    private float y;
 
-    public ParkingModel(int id, String parking_name, String city_name, int free, int taken) {
+    public ParkingModel(int id, String parking_name, String city_name, int free, int taken, float x, float y) {
         this.id = id;
         this.parking_name = parking_name;
         this.city_name = city_name;
         this.free = free;
         this.taken = taken;
+        this.x = x;
+        this.y = y;
     }
 
     @Override
@@ -24,6 +28,8 @@ public class ParkingModel {
                 ", city_name='" + city_name + '\'' +
                 ", free=" + free +
                 ", taken=" + taken +
+                ", x=" + x +
+                ", y=" + y +
                 '}';
     }
 
@@ -65,5 +71,21 @@ public class ParkingModel {
 
     public void setTaken(int taken) {
         this.taken = taken;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
     }
 }

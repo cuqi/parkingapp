@@ -40,15 +40,16 @@
                 android:background="#FF2020"
                 android:textSize="30dp"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
         <Button
             android:id="@+id/reserve_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
             android:layout_marginEnd="232dp"
-            android:text="Reserve Parking"
- />
+            android:text="Reserve Parking" />
 
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

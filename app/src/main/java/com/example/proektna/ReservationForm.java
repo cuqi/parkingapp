@@ -12,13 +12,5 @@ public class ReservationForm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation_form);
-
-        Intent intent = getIntent();
-        String city_name = intent.getStringExtra("city_name");
     }
-
-//    public void selectZone(View view) {
-//        Intent intent = new Intent(this, ParkingPlaces.class);
-//        startActivity(intent);
-//    }
 }
