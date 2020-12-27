@@ -18,7 +18,7 @@ import java.util.List;
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "database4.db";
+    public static final String DATABASE_NAME = "database5.db";
 
     public static final String USER_TABLE = "USER_TABLE";
     public static final String COLUMN_ID = "ID";
@@ -157,6 +157,24 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return returnList;
+    }
+
+    public List<Float> getCoordinates(String parking_name) {
+        String query = "SELECT X, Y FROM " + PARKING_TABLE + " WHERE PARKING_NAME = ?";
+        String[] args = {parking_name};
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, args);
+        List<Float> coordinates = new ArrayList<>();
+        if (cursor.moveToFirst()) {
+            float x = cursor.getFloat(0);
+            float y = cursor.getFloat(1);
+            coordinates.add(x);
+            coordinates.add(y);
+        }
+
+        cursor.close();
+        db.close();
+        return coordinates;
     }
 
 

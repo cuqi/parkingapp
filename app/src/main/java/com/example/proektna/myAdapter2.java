@@ -67,10 +67,13 @@ public class myAdapter2 extends RecyclerView.Adapter<myAdapter2.ViewHolder> {
         viewHolder.free.setText(String.valueOf(rm.getFree()));
         viewHolder.taken.setText(String.valueOf(rm.getTaken()));
 
+
+
         viewHolder.reserve_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ReservationConfirmation.class);
+                intent.putExtra("parking_name", rm.getParking_name());
                 v.getContext().startActivity(intent);
             }
         });
